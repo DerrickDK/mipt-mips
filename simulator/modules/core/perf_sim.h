@@ -72,6 +72,8 @@ private:
     void clock_tree( Cycle cycle);
     void dump_statistics() const;
     bool is_halt() const;
+    uint32 read_uint32(Addr addr) const final;
+    void write_uint32(uint32 word, Addr addr) final;
 };
 
 #endif

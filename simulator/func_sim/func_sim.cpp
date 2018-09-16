@@ -112,6 +112,16 @@ catch (...) {
     return 0;
 }
 
+template<typename ISA>
+uint32 FuncSim<ISA>::read_uint32(Addr addr) const {
+    return mem->template read<uint32>(addr);
+}
+
+template<typename ISA>
+void FuncSim<ISA>::write_uint32(Addr addr, uint32 word) {
+    mem->template write<uint32>(word, addr);
+}
+
 #include <mips/mips.h>
 #include <risc_v/risc_v.h>
 

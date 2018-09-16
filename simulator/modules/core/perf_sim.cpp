@@ -115,6 +115,16 @@ void PerfSim<ISA>::dump_statistics() const
               << std::endl;
 }
 
+template<typename ISA>
+uint32 PerfSim<ISA>::read_uint32(Addr addr) const {
+    return memory->template read<uint32>(addr);
+}
+
+template<typename ISA>
+void PerfSim<ISA>::write_uint32(Addr addr, uint32 word) {
+    memory->template write<uint32>(word, addr);
+}
+
 #include <mips/mips.h>
 #include <risc_v/risc_v.h>
 

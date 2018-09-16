@@ -86,10 +86,14 @@ include_directories(SYSTEM ${CMAKE_CURRENT_LIST_DIR}/../external)
 find_package(Boost REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
-# Targets
+# Core library
 add_library(mipt-mips-src STATIC ${CPPS})
 
+# Targets
 add_executable(${PROJECT_NAME} main.cpp)
+add_library(mipt-mips-cen64 STATIC interface/cen64/cen64_intf.cpp)
+
+target_link_libraries(mipt-mips-cen64 mipt-mips-src stdc++)
 target_link_libraries(${PROJECT_NAME} mipt-mips-src)
 
 # Tests

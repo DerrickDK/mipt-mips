@@ -46,6 +46,9 @@ class FuncSim : public Simulator
             sequence_id = target.sequence_id;
         }
 
+        uint32 read_uint32(Addr addr) const final;
+        void write_uint32(uint32 word, Addr addr) final;
+
         size_t mem_read( Addr addr, unsigned char *buf, size_t length) const final;
         size_t mem_read_noexcept( Addr addr, unsigned char *buf, size_t length) const noexcept final;
         size_t mem_write( Addr addr, const unsigned char *buf, size_t length) final;
